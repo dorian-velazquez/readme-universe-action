@@ -13,6 +13,7 @@ mkdir repos
 cd repos
 
 # iterate directories to clone
+echo "::group::$REPOSITORIES"
 for repository in "${REPOSITORIES[@]}";
 do
     echo "::group::$repository"
