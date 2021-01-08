@@ -1,6 +1,8 @@
 FROM python:latest
 
-RUN ["/bin/bash","pip","install","jinja2"]
+RUN pip install --upgrade pip && \
+    pip install jinja2
+
 
 COPY entrypoint.sh /entrypoint.sh
 COPY script.py /script.py
