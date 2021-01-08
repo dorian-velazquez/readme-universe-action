@@ -1,0 +1,17 @@
+name: 'README Template KPS-Universe'
+description: 'Github Action to render README Template'
+author: 'DorianVelazquez'
+branding:
+  icon: 'upload-cloud'
+  color: 'purple'
+inputs:
+  REPOSITORY_NAME:
+    description: 'Name of the project'
+    required: true
+  ENVIRONMENTS:
+    description: 'Environments'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
