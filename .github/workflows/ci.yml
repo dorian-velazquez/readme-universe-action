@@ -1,0 +1,15 @@
+name: CI
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: test
+        uses: ./
+        with:
+          REPOSITORIES: krogertechnology/kps-galaxy-cd
+          TOKEN: '${{ secrets.GH_TOKEN }}'
