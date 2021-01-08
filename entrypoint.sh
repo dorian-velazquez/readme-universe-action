@@ -9,7 +9,7 @@ git config --global user.email "action-bot@github.com" && git config --global us
 echo "Git initialized"
 
 # create repos dir
-rm -r repos; mkdir repos
+mkdir repos
 cd repos
 
 # iterate directories to clone
