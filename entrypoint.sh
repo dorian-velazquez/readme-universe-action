@@ -2,7 +2,7 @@
 
 
 # initalize git
-echo "Intiializing git"
+echo "Initializing git"
 git config --system core.longpaths true
 git config --global core.longpaths true
 git config --global user.email "action-bot@github.com" && git config --global user.name "Github Action"
@@ -13,7 +13,6 @@ mkdir repos
 cd repos
 
 # iterate directories to clone
-echo "::group::$REPOSITORIES"
 for repository in "${REPOSITORIES[@]}";
 do
     echo "::group::$repository"
