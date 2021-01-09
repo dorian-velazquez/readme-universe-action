@@ -14,10 +14,8 @@ env:
 
 jobs:
   build:
-    runs-on: 
-      - self-hosted
-      - tsa
-      - kroger
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: test
