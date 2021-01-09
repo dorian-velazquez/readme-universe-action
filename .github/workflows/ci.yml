@@ -11,5 +11,12 @@ jobs:
       - name: test
         uses: ./
         with:
-          REPOSITORIES: krogertechnology/kps-galaxy-cd
+          REPOSITORIES: |
+            krogertechnology/kps-galaxy-irm
+            krogertechnology/kps-galaxy-cd
+            krogertechnology/kps-galaxy-procor
+            krogertechnology/kps-galaxy-purhis
+            krogertechnology/kps-galaxy-scription
+            krogertechnology/kps-galaxy-uiitem
+            krogertechnology/kps-galaxy-irrcor 
           TOKEN: '${{ secrets.GH_TOKEN }}'
