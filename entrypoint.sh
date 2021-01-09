@@ -32,8 +32,10 @@ do
     # clone the repo
     REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_NAME}.git"
     GIT_PATH="${TEMP_PATH}${REPO_NAME}"
+
+    echo "URL $REPO_URL"
     git clone --quiet --no-hardlinks --no-tags $REPO_URL $REPO_NAME
 
 done
 
-echo "$(ls)" 
+echo " asdf $(ls)" 
