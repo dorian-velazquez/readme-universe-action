@@ -8,10 +8,6 @@ git config --global core.longpaths true
 git config --global user.email "action-bot@github.com" && git config --global user.name "Github Action"
 echo "Git initialized"
 
-# create repos dir
-mkdir repos
-cd repos
-
 # iterate directories to clone
 for repository in "${REPOSITORIES[@]}";
 do
@@ -30,7 +26,7 @@ do
     echo "Branch: [$BRANCH_NAME]"
 
     # clone the repo
-    REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_NAME}.git"
+    REPO_URL="https://x-access-token:${TOKEN}@github.com/${REPO_NAME}.git"
     GIT_PATH="${TEMP_PATH}${REPO_NAME}"
 
     echo "URL $REPO_URL"
