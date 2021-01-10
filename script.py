@@ -1,19 +1,21 @@
 #!/bin/python3
 
-from jinja2 import Template
+from jinja2 import Environment, FileSystemLoader
 import os
 
-REPOSITORY_NAME = os.environ.get('REPOSITORY_NAME')
-ENVIRONMENTS = ['dev','test','stage','prod']
+project = os.environ.get('REPOSITORY_NAME')
 
 data = {
-        'REPOSITORY_NAME':REPOSITORY_NAME,
-        'ENVIRONMENTS':ENVIRONMENTS
+        "project": project,
+        "environments": {
+            "dev": {},
+            "test": {},
+            "stage": {}
+            }
         }
 
-with open('./templates/README.md.j2') as f:
-    readme_j2 = f.read()
+env = Environment(loader=FileSystemLoader("./templates"))
 
-template = Template(readme_j2)
-print(template.render(data))
+readme = env.get_template("README.md")
 
+print(readme.render(data))
