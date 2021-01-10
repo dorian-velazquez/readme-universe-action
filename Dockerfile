@@ -10,10 +10,12 @@ RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
 RUN pip install --upgrade pip && \
     pip install jinja2
 
+COPY terragrunt /bin/terragrunt
 COPY entrypoint.sh /entrypoint.sh
 COPY script.py /script.py
 COPY templates /templates
 
+RUN chmod 777 /bin/terragrunt
 RUN chmod 777 entrypoint.sh
 RUN chmod 777 script.py
 RUN chmod 777 templates

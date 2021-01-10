@@ -2,11 +2,13 @@
 
 non_prod=(dev-centralus)
 prod=(stage-centralus prod-centralus)
-for environment in $(ls environments)
+
+cd environments
+for environment in $(ls)
 do
-	if [[ " ${prod[@]} " =~ " ${environment} " ]]; then
-		# use prod env variables
-	fi
+	#if [[ " ${prod[@]} " =~ " ${environment} " ]]; then
+		tf_working_dir="environments/$environment"
+		echo $(terragrunt init)
+	#fi
 done
-echo $(terraform --version )
 python /script.py
