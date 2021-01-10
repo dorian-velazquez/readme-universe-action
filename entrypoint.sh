@@ -1,3 +1,4 @@
 #!/bin/bash
-
-echo " asdf $(ls)" 
+echo $(pwd) 
+echo $(ls)
+python script.py
