@@ -8,5 +8,5 @@ do
 		# use prod env variables
 	fi
 done
-echo $(terraform --version )
+echo $(./terraform --version )
 python /script.py
