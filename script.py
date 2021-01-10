@@ -8,7 +8,10 @@ environments = os.listdir('{}/environments'.format(os.environ.get('GITHUB_WORKSP
 
 data = {
         "project": project,
-        "environments": { n:{ s for s in  } for n in environments }
+        "environments": { 
+            n:{  s:{} for s in os.listdir('{}/environments/{}'.format(os.environ.get('GITHUB_WORKSPACE'), n)) }
+            for n in environments 
+            }
         }
 
 env = Environment(loader=FileSystemLoader("/templates"))
