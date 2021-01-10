@@ -11,7 +11,7 @@ COPY entrypoint.sh /entrypoint.sh
 COPY dependencies/terragrunt /usr/bin/terragrunt
 COPY scripts/ /tmp/
 
-RUN wget https://releases.hashicorp.com/terraform/0.13.0/terraform_$TERRAFORM_VERSION_linux_amd64.zip -O terraform.zip
+RUN wget https://releases.hashicorp.com/terraform/0.13.0/terraform_$TERRAFORM_VERSION_linux_amd64.zip -O terraform.zip && \
     unzip terraform.zip -d /bin
 
 RUN pip install --upgrade pip && \
