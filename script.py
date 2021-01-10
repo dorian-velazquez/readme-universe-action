@@ -14,7 +14,7 @@ data = {
             }
         }
 
-env = Environment(loader=FileSystemLoader("./templates"))
+env = Environment(loader=FileSystemLoader("/templates"))
 
 readme = env.get_template("README.md")
 
