@@ -1,5 +1,6 @@
 #!/bin/bash
 
+eval $GIT_SSH_COMMAND
 non_prod=(dev-centralus)
 prod=(stage-centralus prod-centralus)
 
