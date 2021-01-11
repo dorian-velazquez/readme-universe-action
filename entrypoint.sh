@@ -24,12 +24,12 @@ do
 		export ARM_TENANT_ID=$NONPROD_ARM_TENANT_ID
 	fi
 	
-	terragrunt plan-all
 	# terragrunt output-all -json | tee output.json
 	for service in $(ls -d -- */)
 	do
 		cd $service
-		terraform output -json | tee output.json
+		terragrunt output -json | tee output.json
+		# terraform output -json | tee output.json
 		cd ..
 	done
 	
