@@ -26,10 +26,10 @@ do
 	
 	terragrunt init
 	# terragrunt output-all -json | tee output.json
-	for service in $(ls services)
+	for service in $(ls)
 	do
 		cd $service
-		terraform outpu -json | tee output.json
+		terraform output -json | tee output.json
 	done
 	
 	cd ../../
