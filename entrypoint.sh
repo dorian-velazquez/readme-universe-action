@@ -36,5 +36,3 @@ do
 	cd ../../
 done
 
-
-python /script.py
