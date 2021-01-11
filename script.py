@@ -15,9 +15,11 @@ def get_output(base_path):
 
 
 project = os.environ.get('GITHUB_REPOSITORY').split('/')[1]
-environments = os.listdir(
-        '{}/environments'.format(os.environ.get('GITHUB_WORKSPACE'))
-        )
+environments = [n for n in os.listdir(
+        '{}/environments'.format(os.environ.get('GITHUB_WORKSPACE')))
+        if os.path.isdir(
+            '{}/environments/{}'.format(os.environ.get('GITHUB_WORKSPACE'), n))
+        ]
 
 data = {
         "project": project,
@@ -29,7 +31,11 @@ data = {
                     ) for s in os.listdir(
                         '{}/environments/{}'.format(
                             os.environ.get('GITHUB_WORKSPACE'), n)
-                        )}
+                        ) if os.path.isdir(
+                        '{}/environments/{}/{}'.format(
+                            os.environ.get('GITHUB_WORKSPACE'), n, s)
+                        )
+                    }
             for n in environments}
         }
 
