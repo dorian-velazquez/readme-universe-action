@@ -25,8 +25,10 @@ do
 	fi
 	
 	terragrunt init
-	terragrunt output-all -json
+	terragrunt output-all -json > output.json
 	
 	cd ../../
 done
+
+
 python /script.py
