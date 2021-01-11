@@ -20,4 +20,4 @@ RUN chmod 777 entrypoint.sh
 RUN chmod 777 script.py
 RUN chmod 777 templates
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["python","/script.py"]
