@@ -8,7 +8,7 @@ import os
 def get_output(base_path):
     output = {}
     try:
-        output = json.load('{}/output.json'.format(base_path))
+        output = json.load(open('{}/output.json'.format(base_path)))
     except json.decoder.JSONDecodeError:
         output = {}
     return output
