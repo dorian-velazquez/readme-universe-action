@@ -1,12 +1,16 @@
 #!/bin/python3
+
+import json
 from jinja2 import Environment, FileSystemLoader
 import os
 
 
 def get_output(base_path):
-    with open('{}/output.json'.format(base_path), 'r') as output_file:
-        output = output_file.read()
-    print("*** {} ***".format(output))
+    output = {}
+    try:
+        output = json.load('{}/output.json'.format(base_path))
+    except json.decoder.JSONDecodeError:
+        output = {}
     return output
 
 
