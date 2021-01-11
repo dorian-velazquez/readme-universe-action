@@ -30,6 +30,7 @@ do
 	do
 		cd $service
 		terraform output -json | tee output.json
+		cd ..
 	done
 	
 	cd ../../
