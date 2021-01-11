@@ -25,7 +25,12 @@ do
 	fi
 	
 	terragrunt init
-	terragrunt output-all -json | tee output.json
+	# terragrunt output-all -json | tee output.json
+	for service in $(ls services)
+	do
+		cd $service
+		terraform outpu -json | tee output.json
+	done
 	
 	cd ../../
 done
