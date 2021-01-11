@@ -6,6 +6,7 @@ import os
 project = os.environ.get('GITHUB_REPOSITORY').split('/')[1]
 environments = os.listdir('{}/environments'.format(os.environ.get('GITHUB_WORKSPACE')))
 
+print("\n\n\n\n\n")
 for n in environments:
     with open('{}/environments/{}/output.json'.format(os.environ.get('GITHUB_WORKSPACE'), n), 'r') as data_file:
         output = data_file.read()
