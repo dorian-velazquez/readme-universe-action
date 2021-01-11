@@ -25,7 +25,7 @@ do
 	fi
 	
 	terragrunt init
-	terragrunt output-all
+	terragrunt output-all -json
 	
 	cd ../../
 done
