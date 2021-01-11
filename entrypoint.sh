@@ -26,7 +26,7 @@ do
 	
 	terragrunt plan-all
 	# terragrunt output-all -json | tee output.json
-	for service in $(ls -ld -- */)
+	for service in $(ls -d -- */)
 	do
 		cd $service
 		terraform output -json | tee output.json
