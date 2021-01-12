@@ -48,4 +48,5 @@ env = Environment(loader=FileSystemLoader("/templates"))
 
 readme = env.get_template("README.md")
 
-print(readme.render(data))
+with open('{}/README.md', 'w') as readme_output:
+    readme_output.write(readme.render(data))
