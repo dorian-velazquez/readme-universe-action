@@ -12,6 +12,7 @@ export ARM_TENANT_ID=$NONPROD_ARM_TENANT_ID
 export tf_working_dir="environments/dev-centralus"
 cd environments/dev-centralus/01-subnet
 terragrunt output-all -json 2> tee output.json
+cat output.json
 
 : '
 for environment in $(ls environments)
