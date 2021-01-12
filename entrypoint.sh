@@ -3,6 +3,17 @@
 non_prod=(dev-centralus)
 prod=(stage-centralus prod-centralus)
 
+export ARM_ACCESS_KEY=$NONPROD_ARM_ACCESS_KEY
+export ARM_CLIENT_ID=$NONPROD_ARM_CLIENT_ID
+export ARM_CLIENT_SECRET=$NONPROD_ARM_CLIENT_SECRET
+export ARM_SUBSCRIPTION_ID=$NONPROD_ARM_SUBSCRIPTION_ID
+export ARM_TENANT_ID=$NONPROD_ARM_TENANT_ID
+
+cd environments/dev-centralus/01-subnet
+terragrunt output-all -json 2>  output.json
+
+cat output.json
+: '
 for environment in $(ls environments)
 do
 	export tf_working_dir="environments/$environment"
@@ -35,3 +46,5 @@ do
 	
 	cd ../../
 done
+'
+
