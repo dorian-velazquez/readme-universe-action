@@ -45,7 +45,9 @@ do
 		cd $service
 		# terragrunt output-all -json 2> >(grep -v "\[terragrunt]" >&2) | tee output.json
 
-		terragrunt output-all -json 2>output.json >/dev/null
+		terragrunt output-all -json  >output.json
+
+		printf "\n\n\n\n"
 		echo asdfasdfsdfsdfsdfasdfsd
 		echo $(cat output.json)
 		cd ..
