@@ -7,8 +7,6 @@ RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
     tfenv install $TERRAFORM_VERSION && \
     tfenv use $TERRAFORM_VERSION
 
-RUN pip install --upgrade pip && \
-    pip install jinja2
 
 COPY terragrunt /bin/terragrunt
 COPY entrypoint.sh /entrypoint.sh
