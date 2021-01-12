@@ -49,9 +49,7 @@ do
 		echo asdfasdfsdfsdfsdfasdfsd
 		echo $(cat output.json)
 		cd ..
-		break
 	done
 	
 	cd ../../
-	break
 done
