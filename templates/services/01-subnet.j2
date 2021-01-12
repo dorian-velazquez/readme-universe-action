@@ -1,2 +1,2 @@
-Resource name: `{{ data["resource_group_name"]["value"]  }}`
-Team Name: `{{ data["team_name"]["value"] }}`
+{% if "resource_group_name" in data %}Resource name: `{{ data["resource_group_name"]["value"]  }}`{% endif %}
+{% if "team_name" in data %}Team Name: `{{ data["team_name"]["value"] }}`{% endif %}
