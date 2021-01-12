@@ -47,9 +47,6 @@ do
 
 		terragrunt output-all -json  >output.json
 
-		printf "\n\n\n\n"
-		echo asdfasdfsdfsdfsdfasdfsd
-		echo $(cat output.json)
 		cd ..
 	done
 	
