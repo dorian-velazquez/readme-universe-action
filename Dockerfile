@@ -12,12 +12,8 @@ RUN pip install --upgrade pip && \
 
 COPY terragrunt /bin/terragrunt
 COPY entrypoint.sh /entrypoint.sh
-COPY script.py /script.py
-COPY templates /templates
 
 RUN chmod 777 /bin/terragrunt
 RUN chmod 777 entrypoint.sh
-RUN chmod 777 script.py
-RUN chmod 777 templates
 
 ENTRYPOINT ["/entrypoint.sh"]
