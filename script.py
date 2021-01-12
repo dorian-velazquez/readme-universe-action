@@ -14,33 +14,36 @@ def get_output(base_path):
     return output
 
 
+def get_services(base_path):
+    services = os.listdir(base_path)
+    services = [s for s in services if os.path.isdir(
+        '{}/{}'.format(base_path, s))
+        ]
+    services.sort()
+    return services
+
+
+workspace = os.environ.get('GITHUB_WORKSPACE')
 project = os.environ.get('GITHUB_REPOSITORY').split('/')[1]
 environments = [n for n in os.listdir(
-        '{}/environments'.format(os.environ.get('GITHUB_WORKSPACE')))
+        '{}/environments'.format(workspace))
         if os.path.isdir(
-            '{}/environments/{}'.format(os.environ.get('GITHUB_WORKSPACE'), n))
+            '{}/environments/{}'.format(workspace, n))
         ]
+
 
 data = {
         "project": project,
         "environments": {
             n: {
                 s: get_output(
-                    '{}/environments/{}/{}'.format(
-                        os.environ.get('GITHUB_WORKSPACE'), n, s)
-                    ) for s in os.listdir(
-                        '{}/environments/{}'.format(
-                            os.environ.get('GITHUB_WORKSPACE'), n)
-                        ) if os.path.isdir(
-                        '{}/environments/{}/{}'.format(
-                            os.environ.get('GITHUB_WORKSPACE'), n, s)
-                        )
+                    '{}/environments/{}/{}'.format(workspace, n, s)
+                    ) for s in get_services(
+                        '{}/environments/{}'.format(workspace, n))
                     }
             for n in environments}
         }
 
-
-print("DATA: ",data)
 env = Environment(loader=FileSystemLoader("/templates"))
 
 readme = env.get_template("README.md")
