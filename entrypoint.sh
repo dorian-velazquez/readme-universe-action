@@ -1,6 +1,5 @@
 #!/bin/bash
 
-eval $GIT_SSH_COMMAND
 non_prod=(dev-centralus)
 prod=(stage-centralus prod-centralus)
 
@@ -28,7 +27,8 @@ do
 	for service in $(ls -d -- */)
 	do
 		cd $service
-		terragrunt output-all -json | tee output.json
+		terragrunt output-all -json 2> >(grep -v "\[terragrunt]" >&2) | tee output.json
+
 		# terraform output -json | tee output.json
 		cd ..
 	done
