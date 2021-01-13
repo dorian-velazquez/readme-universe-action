@@ -1,5 +1,10 @@
 #!/bin/bash
 
+BRANCH_NAME="automation"
+git config --system core.longpaths true
+git config --global core.longpaths true
+git config --global user.email "action-bot@github.com" && git config --global user.name "Github Action"
+git fetch && git checkout $BRANCH_NAME && git pull || git checkout -b $BRANCH_NAME
 
 non_prod=(dev-centralus)
 prod=(stage-centralus prod-centralus)
@@ -52,3 +57,4 @@ do
 	
 	cd ../../
 done
+
