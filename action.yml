@@ -4,13 +4,6 @@ author: 'DorianVelazquez'
 branding:
   icon: 'upload-cloud'
   color: 'purple'
-inputs:
-  REPOSITORIES:
-    description: 'Name of the projects'
-    required: true
-  TOKEN:
-    description: 'Personal access token with Repo privileges'
-    required: true
 
 runs:
   using: 'docker'

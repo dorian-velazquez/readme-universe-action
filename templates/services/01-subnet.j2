@@ -1,2 +1,5 @@
-{% if "resource_group_name" in data %}Resource name: `{{ data["resource_group_name"]["value"]  }}`{% endif %}
-{% if "team_name" in data %}Team Name: `{{ data["team_name"]["value"] }}`{% endif %}
+{% for prop in data%}
+{% if 'sensitive' not in data[prop] or ('sensitive' in data[prop] and data[prop]['sensitive'] == false ) %}
+{{ prop }}: {{data[prop]['value']}}
+{% endif %}
+{% endfor %}
