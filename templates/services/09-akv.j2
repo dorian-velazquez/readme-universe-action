@@ -1,1 +1,5 @@
-{% if 'id' in data %}id: `{{ data['id']['value'] }}`{% endif %}
+{% for prop in data%}
+{% if 'sensitive' not in data[prop] or ('sensitive' in data[prop] and data[prop]['sensitive'] == false ) %}
+{{ prop }}: {{data[prop]['value']}}
+{% endif %}
+{% endfor %}

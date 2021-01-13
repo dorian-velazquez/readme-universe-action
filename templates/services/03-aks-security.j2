@@ -1,1 +1,5 @@
-{% if 'aks_api_ip' in data %}aks api ip: `{{ data['aks_api_ip']['value'] }}`{% endif %}
+{% for prop in data%}
+{% if 'sensitive' not in data[prop] or ('sensitive' in data[prop] and data[prop]['sensitive'] == false ) %}
+{{ prop }}: {{data[prop]['value']}}
+{% endif %}
+{% endfor %}

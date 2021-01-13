@@ -1,2 +1,5 @@
-{% if "aks_cluster_name" in data  %}aks cluster name: `{{ data['aks_cluster_name']['value'] }}`{% endif %}
-{% if "cluster_node_resource_group" in data %}cluster node resource group: `{{ data['cluster_node_resource_group']['value'] }}`{% endif %}
+{% for prop in data%}
+{% if 'sensitive' not in data[prop] or ('sensitive' in data[prop] and data[prop]['sensitive'] == false ) %}
+{{ prop }}: {{data[prop]['value']}}
+{% endif %}
+{% endfor %}

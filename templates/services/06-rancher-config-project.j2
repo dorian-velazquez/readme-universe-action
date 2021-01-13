@@ -1,3 +1,5 @@
-{% if 'aad_group_admin_name' in data %}aad group admin name: `{{ data['aad_group_admin_name']['value'] }}`{% endif %}
-{% if 'aad_group_developer_name' in data %}aad group developer name: `{{ data['aad_group_developer_name']['value'] }}`{% endif %}
-{% if 'aad_group_viewer_name' in data %}aad group viewer name: `{{ data['aad_group_viewer_name']['value'] }}`{% endif %}
+{% for prop in data%}
+{% if 'sensitive' not in data[prop] or ('sensitive' in data[prop] and data[prop]['sensitive'] == false ) %}
+{{ prop }}: {{data[prop]['value']}}
+{% endif %}
+{% endfor %}
