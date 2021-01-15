@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo $(git status)
+echo $(git rev-parse --abbrev-ref HEAD)
+echo $(git remote -v)
 if [ -z "$(git diff origin/main --  README.md)" ]
 then
 	git add README.md
