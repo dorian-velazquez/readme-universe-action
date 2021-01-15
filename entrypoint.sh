@@ -2,6 +2,7 @@
 
 BRANCH_NAME="readme"
 
+
 echo "Branch: [$BRANCH_NAME]"
 
 # checkout the branch, if specified
