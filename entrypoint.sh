@@ -5,5 +5,5 @@ then
 	git add README.md
 	git commit -m "rendered README.md" || exit 0
 	git status
-	git push origin $(git rev-parse --abbrev-ref HEAD)
+	git push origin $BRANCH_NAME
 fi
