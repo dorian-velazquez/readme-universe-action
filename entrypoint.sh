@@ -1,5 +1,6 @@
 #!/bin/bash
 
+eval $GIT_SSH_COMMAND
 git config --system core.longpaths true
 git config --global core.longpaths true
 git config --global user.email "action-bot@github.com" && git config --global user.name "Github Action"
