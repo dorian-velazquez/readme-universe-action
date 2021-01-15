@@ -6,7 +6,7 @@ echo $(git remote -v)
 if [ -z "$(git diff origin/main --  README.md)" ]
 then
 	git add README.md
-	git commit -m "rendered README.md" || exit 0
+	git commit -m "rendered README.md" 
 	git status
 	git push origin $BRANCH_NAME
 fi
