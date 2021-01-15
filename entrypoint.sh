@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH_NAME="automation"
+BRANCH_NAME="automation/readme"
 git config --system core.longpaths true
 git config --global core.longpaths true
 git config --global user.email "action-bot@github.com" && git config --global user.name "Github Action"
