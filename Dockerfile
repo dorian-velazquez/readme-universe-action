@@ -1,6 +1,6 @@
 FROM python:latest
 
-ENV TERRAFORM_VERSION=0.13.5
+ENV TERRAFORM_VERSION=0.13.6
 
 RUN git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
     ln -s ~/.tfenv/bin/* /usr/local/bin && \
